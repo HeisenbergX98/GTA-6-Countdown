@@ -40,28 +40,13 @@ h3 {
     //background-color: blue;
 
     .logo {
-        margin: 0;
-        padding: 50px 85px;
+        padding: 65px 70px 40px;
         user-select: none;
-        //background: red;
+        cursor: default;
 
-        h1 {
-            margin: 0;
-            width: fit-content;
-            height: fit-content;
-            color: white;
-            cursor: pointer;
-            transition: color 0.3s ease;
-
-
-            font: {
-                family: $classicFont;
-                size: 55px;
-            }
-
-            &:hover {
-                color: $hoverColor
-            }
+        img {
+            width: 66px;
+            height: 46px;
         }
 
     }
@@ -451,11 +436,7 @@ h3 {
         justify-content: space-between;
 
         .logo {
-            padding: 10px 30px;
-
-            h1 {
-                font-size: 55px;
-            }
+            padding: 29.72px 30px;
         }
 
         .midHeader {

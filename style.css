@@ -39,26 +39,15 @@ h3 {
   justify-content: space-between;
 }
 .header-container .logo {
-  margin: 0;
-  padding: 50px 85px;
+  padding: 65px 70px 40px;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  cursor: default;
 }
-.header-container .logo h1 {
-  margin: 0;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  color: white;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-family: "Pricedown";
-  font-size: 55px;
-}
-.header-container .logo h1:hover {
-  color: rgb(252, 246, 212);
+.header-container .logo img {
+  width: 66px;
+  height: 46px;
 }
 .header-container .midHeader {
   padding: 60.72px 0 40px;
@@ -387,10 +376,7 @@ h3 {
     justify-content: space-between;
   }
   .header-container .logo {
-    padding: 10px 30px;
-  }
-  .header-container .logo h1 {
-    font-size: 55px;
+    padding: 29.72px 30px;
   }
   .header-container .midHeader img {
     margin-top: 10px;
