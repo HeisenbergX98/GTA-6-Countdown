@@ -1,0 +1,643 @@
+@use 'variables' as *;
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(10deg, rgba(17, 17, 23, 1) 0%, rgba(23, 22, 33, 1) 100%);
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+
+    min: {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+h3 {
+    font-size: clamp(13px, 1vw, 80px);
+    color: $hoverColor;
+    text-align: center;
+}
+
+::selection {
+    background-color: rgb(255, 176, 196);
+    color: #37374f;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    //background-color: blue;
+
+    .logo {
+        margin: 0;
+        padding: 50px 85px;
+        user-select: none;
+        //background: red;
+
+        h1 {
+            margin: 0;
+            width: fit-content;
+            height: fit-content;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+
+            font: {
+                family: $classicFont;
+                size: 55px;
+            }
+
+            &:hover {
+                color: $hoverColor
+            }
+        }
+
+    }
+
+    .midHeader {
+        padding: 60.72px 0 40px;
+        //background: white;
+
+        img {
+            width: 250px;
+            height: 160px;
+            user-select: none;
+        }
+    }
+
+    .sidenav-open-container {
+        display: flex;
+        height: 100%;
+        transition: $bgTransition;
+        padding: 67.72px 85px;
+        //background: green;
+
+        .bars-sidenav {
+            width: fit-content;
+            height: fit-content;
+            cursor: pointer;
+
+            .bar {
+                width: 34px;
+                height: 7px;
+                background-color: white;
+                margin: 7px 0;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .bars-sidenav:hover .bar {
+            background-color: $hoverColor;
+        }
+    }
+}
+
+.sidenav-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 25vw;
+    justify-self: right;
+    align-items: flex-start;
+    z-index: 9999;
+    background: rgba(17, 17, 23, 1);
+    flex-direction: column;
+    user-select: none;
+
+    .sidenav-buttons {
+        display: flex;
+        width: 100%;
+        margin: 50.72px 85px 0 0;
+        padding: 0 20px;
+        align-items: center;
+        //background: red;
+        gap: 5px;
+
+        .active {
+            color: black;
+            background: white;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: clamp(15px, 1vw, 50px);
+            width: fit-content;
+            background: transparent;
+            border: none;
+            padding: 20px 20px;
+            border-radius: 40px;
+            color: white;
+            transition: $bgTransition, color 0.4s ease;
+            font-weight: 600;
+
+            &:hover {
+                color: $hoverColor;
+            }
+
+            &:active {
+                color: black;
+                background: white;
+            }
+
+            &:focus {
+                color: black;
+                background: white;
+            }
+        }
+
+        .close-sidenav {
+            display: flex;
+            width: 100%;
+            //background: red;
+            padding-right: 50px;
+            justify-content: flex-end;
+            align-items: center;
+
+            button {
+                display: flex;
+                background-color: rgb(103, 103, 103, 0.2);
+                border-radius: 50px !important;
+                aspect-ratio: 1/1;
+                transition: $bgTransition;
+                width: clamp(32px, 5vw, 60px);
+                height: clamp(32px, 5vw, 60px);
+                flex-shrink: 1;
+                padding: 0;
+                align-items: center;
+                justify-content: center;
+
+                min: {
+                    width: 32px;
+                    height: 32px;
+                }
+
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                }
+
+                &:hover {
+                    background-color: rgb(103, 103, 103, 0.4);
+                    color: $hoverColor;
+                }
+
+                &:active {
+                    background-color: rgb(103, 103, 103, 0.6);
+                }
+            }
+        }
+    }
+
+    .change-background {
+        display: flex;
+        //background: red;
+        width: 100%;
+        margin-top: 40px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        animation: opacityContent 0.4s ease;
+
+        button {
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 3vw;
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            color: white;
+            transition: color 0.4s ease;
+
+            &:hover {
+                color: $hoverColor;
+            }
+
+            &:active {
+                color: #ffb0c1;
+            }
+
+            &:focus {
+                color: #ffb0c1;
+            }
+        }
+    }
+
+    .trailers-container {
+        display: flex;
+        //background: red;
+        width: 100%;
+        margin-top: 40px;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        user-select: none;
+        animation: opacityContent 0.4s ease;
+
+        .trailer-box {
+            background: rgb(30, 30, 36);
+            display: flex;
+            width: 100%;
+            cursor: pointer;
+            transition: $bgTransition;
+
+            flex: {
+                direction: row;
+                wrap: wrap;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            img {
+                display: flex;
+                flex: 1 1 0;
+                align-self: flex-start;
+                width: 150px;
+                height: 140px;
+            }
+
+            .trailer-text {
+                h4 {
+                    color: white;
+                    margin: 10px 10px;
+                    font-size: clamp(15px, 1vw, 50px);
+                }
+
+                p {
+                    //background: red;
+                    color: gray;
+                    margin-left: 10px;
+                    font-size: clamp(10px, 15px, 20px);
+                }
+            }
+
+            &:hover {
+                background-color: rgb(48, 48, 48);
+            }
+
+        }
+    }
+}
+
+.countdown-container {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    .countdown-display {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .timer {
+        font-size: clamp(30px, 7vw, 80px);
+        color: white;
+        transition: color 0.7s ease;
+
+        &:hover {
+            color: $hoverColor;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        font-size: clamp(30px, 7vw, 80px);
+        color: white;
+        margin: 0;
+        align-self: flex-start;
+        margin-top: -5px;
+    }
+}
+
+.section-container {
+
+    //background: red;
+    h1 {
+        background: linear-gradient(182deg, rgba(230, 92, 142, 1) 0%, rgba(255, 207, 125, 1) 88%);
+        background-clip: text;
+        margin: 30px 0 30px;
+        color: transparent;
+        text-align: center;
+        cursor: default;
+        line-height: 0.9;
+        letter-spacing: -1.92px;
+
+        font: {
+            family: $font;
+            size: clamp(80px, 5vw, 100px);
+        }
+    }
+}
+
+.wishlist-container {
+    display: flex;
+    width: 100%;
+    //background: red;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    p {
+        font-size: clamp(30px, 2vw, 70px);
+        color: white;
+        text-align: center;
+    }
+
+    .wishlist-buttons {
+        display: flex;
+        width: fit-content;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        //background: red;
+
+        button {
+            background: #29292e;
+            padding: 10px 20px;
+            border-radius: 40px;
+            width: fit-content;
+            height: fit-content;
+            transition: background-color 0.3s ease, outline 0.3s ease;
+            cursor: pointer;
+            border: 3px solid #13131a;
+            outline: 3px solid transparent;
+            user-select: none;
+
+            &:hover {
+                background-color: #4d4d54;
+            }
+
+            &:active {
+                background-color: #4d4d54;
+                outline: 3px solid white;
+            }
+
+            &:focus {
+                background-color: #4d4d54;
+                outline: 3px solid white;
+            }
+
+            img {
+                width: 120px;
+                height: 35px;
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+}
+
+@keyframes opacityContent {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 15px;
+        justify-content: space-between;
+
+        .logo {
+            padding: 10px 30px;
+
+            h1 {
+                font-size: 55px;
+            }
+        }
+
+        .midHeader {
+            img {
+                margin-top: 10px;
+                width: 150px;
+                height: 100px;
+            }
+        }
+
+        .sidenav-open-container {
+            padding: 29.72px 30px;
+            justify-content: center;
+        }
+    }
+
+    .sidenav-container {
+        animation: slideIn 0.3s forwards;
+
+        .sidenav-buttons {
+            padding: 0;
+            //background: red;
+            gap: 0;
+
+            button {
+                padding: 10px 15px;
+            }
+        }
+
+        .change-background {
+            button {
+                font-size: 7vw;
+            }
+        }
+    }
+
+    .countdown-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        margin: 0 7%;
+        width: 90vw;
+        //background: red;
+
+        .countdown-display {
+            flex-direction: row;
+            gap: 20px;
+        }
+    }
+
+    .wishlist-container {
+        //background: red;
+        flex-direction: column;
+        gap: 0;
+
+        p {
+            padding: 0;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            width: 0;
+            right: -6vw;
+            opacity: 0;
+        }
+
+        to {
+            width: 65vw;
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes slideOut {
+        from {
+            width: 65vw;
+            opacity: 1;
+        }
+
+        to {
+            width: 0;
+            right: -6vw;
+            opacity: 0;
+        }
+
+    }
+}
+
+@media (max-width: 344px) {
+    .header-container {
+        padding: 0;
+        justify-content: space-between;
+
+        .logo {
+            padding: 10 10px;
+        }
+    }
+
+    .countdown-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        margin: 0 7%;
+        width: 90vw;
+        //background: red;
+
+        .countdown-display {
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+    .wishlist-container {
+        //background: red;
+
+        .wishlist-buttons {
+            gap: 10px;
+
+            p {
+                padding: 0;
+            }
+
+            button {
+                img {
+                    width: 90px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidenav-container {
+        width: 50vw;
+
+        .sidenav-buttons {
+            padding: 0;
+            //background: red;
+            gap: 0;
+
+            button {
+                padding: 10px 15px;
+                font-size: 20px;
+            }
+        }
+
+        .change-background {
+            button {
+                font-size: 6vw;
+            }
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            width: 0;
+            right: -6vw;
+            opacity: 0;
+        }
+
+        to {
+            width: 50vw;
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes slideOut {
+        from {
+            width: 50vw;
+            opacity: 1;
+        }
+
+        to {
+            width: 0;
+            right: -6vw;
+            opacity: 0;
+        }
+
+    }
+}

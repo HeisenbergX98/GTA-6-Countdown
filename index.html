@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA VI Countdown</title>
+    <link rel="icon" type="image/png" href="img/6logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="logo">
+            <h1>VI</h1>
+        </div>
+
+        <div class="midHeader">
+            <img src="img/logo.webp" alt="GTA 6 logo">
+        </div>
+        <div class="sidenav-open-container">
+            <div id="sidenavOpenBtn" class="bars-sidenav">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidenav" class="sidenav-container hidden">
+        <div class="sidenav-buttons">
+            <button id="BackgroundBtn" class="active">Background</button>
+            <button id="TrailersBtn">Trailers</button>
+            <div class="close-sidenav">
+                <button id="sidenavCloseBtn"><img src="img/close.png" alt="Close"></button>
+            </div>
+        </div>
+
+        <div id="backgroundBox" class="change-background">
+            <button id="bg1">Marina</button>
+            <button id="bg2">Beach</button>
+            <button id="bg3">Bridge View</button>
+            <button id="bg4">Ocean View</button>
+            <button id="bg5">Street Art</button>
+            <button id="bg6">Strip Club</button>
+            <button id="bg7">Club</button>
+            <button id="bg8">Official</button>
+        </div>
+        <div id="trailersBox" class="trailers-container hidden">
+            <div class="trailer-box">
+                <a href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer">
+                    <img src="img/t2.png" alt="t2">
+                </a>
+                <a href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer">
+                    <div class="trailer-text">
+                        <h4>GTA VI Trailer 2</h4>
+                        <p>May 6, 2025</p>
+                    </div>
+                </a>
+            </div>
+            <div class="trailer-box">
+                <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener noreferrer">
+                    <img src="img/t1.png" alt="t1">
+                </a>
+                <div class="trailer-text">
+                    <a href="https://www.youtube.com/watch?v=QdBZY2fkU-0" target="_blank" rel="noopener noreferrer">
+                        <h4>GTA VI Trailer 1</h4>
+                        <p>December 4, 2023</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="countdown-container">
+        <div id="countdownDisplay" class="countdown-display">
+            <div>
+                <div id="days" class="timer">00</div>
+                <div>
+                    <h3>DAYS</h3>
+                </div>
+            </div>
+            <h1 style="cursor: default;">:</h1>
+            <div>
+                <div id="hours" class="timer">00</div>
+                <div>
+                    <h3>HOURS</h3>
+                </div>
+            </div>
+            <h1 style="cursor: default;">:</h1>
+            <div>
+                <div id="minutes" class="timer">00</div>
+                <div>
+                    <h3>MINUTES</h3>
+                </div>
+            </div>
+            <h1 style="cursor: default;">:</h1>
+            <div>
+                <div id="seconds" class="timer">00</div>
+                <div>
+                    <h3>SECONDS</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h1 id="sectionText" style="text-shadow: none !important;">COMING<br>MAY 26<br>2026</h1>
+    </div>
+    <div class="wishlist-container">
+        <p>Wishlist Now</p>
+        <div class="wishlist-buttons">
+            <button><a href="https://www.playstation.com/pl-pl/games/grand-theft-auto-vi/" target="_blank"><img
+                        src="img/ps5icon.png" alt="GTA 6 logo"></a></button>
+            <button><a href="https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9nl3wwnzlzzn"
+                    target="_blank"><img src="img/xboxicon.png" alt="GTA 6 logo"></a></button>
+        </div>
+    </div>
+
+    <script src="script_countdown.js"></script>
+    <script src="script_functionality.js"></script>
+</body>
+
+</html>
