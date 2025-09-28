@@ -19,10 +19,6 @@ const bg8 = document.getElementById('bg8');
 
 const body = document.body;
 
-function onClick(button, handler) {
-    button.addEventListener('click', handler);
-}
-
 function show(element) {
     element.classList.remove('hidden');
 }
@@ -31,17 +27,25 @@ function hide(element) {
     element.classList.add('hidden');
 }
 
+function addSidenavAnimation(slideIn, slideOut) {
+    sidenav.style.animation = slideIn ? 'slideIn 0.3s ease-out forwards' : 'slideOut 0.3s forwards';
+}
+
+let sidenavTimeout;
+
 function openSidenav() {
     show(sidenav);
-    sidenav.style.animation = 'slideIn 0.3s ease-out forwards';
-    setTimeout(function () {
+    addSidenavAnimation(true, false);
+    clearTimeout(sidenavTimeout);
+    sidenavTimeout = setTimeout(function () {
         sidenav.style.animation = '';
     }, 300);
 }
 
 function closeSidenav() {
-    sidenav.style.animation = 'slideOut 0.3s forwards';
-    setTimeout(function () {
+    addSidenavAnimation(false, true);
+    clearTimeout(sidenavTimeout);
+    sidenavTimeout = setTimeout(function () {
         sidenav.style.animation = '';
         hide(sidenav);
     }, 300);
@@ -68,29 +72,29 @@ function setShadow() {
     });
 }
 
-onClick(sidenavCloseBtn, function () {
+sidenavCloseBtn.addEventListener('click', function handleSidenavCloseBtnClick() {
     closeSidenav();
 });
 
-onClick(sidenavOpenBtn, function () {
+sidenavOpenBtn.addEventListener('click', function handleSidenavOpenBtnClick() {
     openSidenav();
 });
 
-onClick(backgroundBtn, function () {
+backgroundBtn.addEventListener('click', function handleBackgroundBtnClick() {
     trailersBtn.classList.remove('active');
     backgroundBtn.classList.add('active');
     show(backgroundBox);
     hide(trailersBox);
 });
 
-onClick(trailersBtn, function () {
+trailersBtn.addEventListener('click', function handleTrailerBtnClick() {
     backgroundBtn.classList.remove('active');
     trailersBtn.classList.add('active');
     hide(backgroundBox);
     show(trailersBox);
 });
 
-document.addEventListener('click', function (event) {
+document.addEventListener('click', function handleDocumentClick(event) {
     const isSidenav = sidenav.contains(event.target);
     const isOpenBtn = sidenavOpenBtn.contains(event.target);
     if (!isSidenav && !isOpenBtn && !sidenav.classList.contains('hidden')) {
@@ -100,14 +104,21 @@ document.addEventListener('click', function (event) {
 
 // Background part ----------------->
 
+function setSectionTextStyle(element, gradientColor) {
+    Object.assign(element.style, {
+        background: gradientColor,
+        backgroundClip: 'text',
+        color: 'transparent'
+    });
+}
+
 function setupBackground(element, imageURL, gradientColor = '') {
     const sectionText = document.getElementById('sectionText');
-    onClick(element, function () {
+
+    element.addEventListener('click', function handleChangeBGClick() {
         changeBG(imageURL);
         setShadow();
-        sectionText.style.background = gradientColor;
-        sectionText.style.backgroundClip = 'text';
-        sectionText.style.color = 'transparent';
+        setSectionTextStyle(sectionText, gradientColor);
     });
 }
 
