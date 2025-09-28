@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(10deg, rgba(17, 17, 23, 1) 0%, rgba(23, 22, 33, 1) 100%);
+    background: $bgGradient;
     margin: 0;
     padding: 0;
     font-family: $font;
@@ -23,14 +23,14 @@ body {
 }
 
 h3 {
-    font-size: clamp(13px, 1vw, 80px);
+    font-size: $h3FontSize;
     color: $hoverColor;
     text-align: center;
 }
 
 ::selection {
-    background-color: rgb(255, 176, 196);
-    color: #37374f;
+    background-color: $selectionBGColor;
+    color: $selectionTextColor;
 }
 
 .header-container {
@@ -40,7 +40,7 @@ h3 {
     //background-color: blue;
 
     .logo {
-        padding: 65px 70px 40px;
+        padding: $logoPadding;
         user-select: none;
         cursor: default;
 
@@ -52,7 +52,7 @@ h3 {
     }
 
     .midHeader {
-        padding: 60.72px 0 40px;
+        padding: $midHeaderPadding;
         //background: white;
 
         img {
@@ -66,7 +66,7 @@ h3 {
         display: flex;
         height: 100%;
         transition: $bgTransition;
-        padding: 67.72px 85px;
+        padding: $sideNavOpenBtnPadding;
         //background: green;
 
         .bars-sidenav {
@@ -79,7 +79,7 @@ h3 {
                 height: 7px;
                 background-color: white;
                 margin: 7px 0;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+                box-shadow: $generalShadow;
             }
         }
 
@@ -99,14 +99,14 @@ h3 {
     justify-self: right;
     align-items: flex-start;
     z-index: 9999;
-    background: rgba(17, 17, 23, 1);
+    background: $sideNavBG;
     flex-direction: column;
     user-select: none;
 
     .sidenav-buttons {
         display: flex;
         width: 100%;
-        margin: 50.72px 85px 0 0;
+        margin: $sideNavBtnMargin;
         padding: 0 20px;
         align-items: center;
         //background: red;
@@ -119,11 +119,11 @@ h3 {
 
         button {
             cursor: pointer;
-            font-size: clamp(15px, 1vw, 50px);
+            font-size: $sideNavBtnFontSize;
             width: fit-content;
             background: transparent;
             border: none;
-            padding: 20px 20px;
+            padding: $sideNavBtnPadding;
             border-radius: 40px;
             color: white;
             transition: $bgTransition, color 0.4s ease;
@@ -252,9 +252,8 @@ h3 {
 
             img {
                 display: flex;
-                flex: 1 1 0;
+                flex: 1 1 250px;
                 align-self: flex-start;
-                width: 150px;
                 height: 140px;
             }
 
@@ -319,9 +318,9 @@ h3 {
 
     //background: red;
     h1 {
-        background: linear-gradient(182deg, rgba(230, 92, 142, 1) 0%, rgba(255, 207, 125, 1) 88%);
+        background: $sectionBGColor;
         background-clip: text;
-        margin: 30px 0 30px;
+        margin: $sectionH1margin;
         color: transparent;
         text-align: center;
         cursor: default;
@@ -330,7 +329,7 @@ h3 {
 
         font: {
             family: $font;
-            size: clamp(80px, 5vw, 100px);
+            size: $sectionFontSize;
         }
     }
 }
@@ -346,7 +345,7 @@ h3 {
     gap: 30px;
 
     p {
-        font-size: clamp(30px, 2vw, 70px);
+        font-size: $wishListFontSize;
         color: white;
         text-align: center;
     }
