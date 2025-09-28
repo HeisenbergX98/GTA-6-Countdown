@@ -1,11 +1,11 @@
 const targetDate = new Date("May 26, 2026 00:00:00").getTime();
 
-function getTimeParts(distance) {
+function getTimeParts(timeLeft) {
     return {
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((timeLeft % (1000 * 60)) / 1000)
     };
 }
 
@@ -23,15 +23,15 @@ function updateCountdown() {
     const secondsEl = document.getElementById("seconds");
 
     const now = new Date().getTime();
-    const distance = targetDate - now;
-    const timeParts = getTimeParts(distance);
+    const timeLeft = targetDate - now;
+    const timeParts = getTimeParts(timeLeft);
 
     daysEl.textContent = pad(timeParts.days);
     hoursEl.textContent = pad(timeParts.hours);
     minutesEl.textContent = pad(timeParts.minutes);
     secondsEl.textContent = pad(timeParts.seconds);
 
-    if (distance < 0) {
+    if (timeLeft < 0) {
         clearInterval(countdown);
         countdownDisplay.textContent = "TODAY IS THE RELEASE DAY!";
     }
