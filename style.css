@@ -224,9 +224,8 @@ h3 {
 }
 .sidenav-container .trailers-container .trailer-box img {
   display: flex;
-  flex: 1 1 0;
+  flex: 1 1 250px;
   align-self: flex-start;
-  width: 150px;
   height: 140px;
 }
 .sidenav-container .trailers-container .trailer-box .trailer-text h4 {
